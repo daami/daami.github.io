@@ -1,11 +1,90 @@
 ---
 layout: post
-title: "first blog"
+title: "第一篇博客"
 date: 2016-07-01 15:10:25 +0800
 comments: true
 categories: 
 ---
-第一篇博客的测试内容
+真的没有什么高大上的内容，为了将一些新的内容更新到博客里面来，碰到了各种各样的问题，断断续续的弄了好几天。想起好多年前弄J2EE开发环境的样子，第一次弄个ruby的开发环境也挺辛苦的，好在有stackoverflow和google，一点点的都解决掉了
 
+先列一些名词
 
-看看是不是好用
+Jekkll
+
+Gemfile
+
+rake
+
+rbenv
+
+gem
+
+bundle
+
+brew
+
+RVM
+
+rbbuild
+
+第一个问题：Errno::ENOENT: No Such File or Directory - Jekyll ~ Octopress and El Capitan
+
+第二个问题：brew install超慢
+
+使用清华或者中科大镜像
+
+cd /usr/local
+
+git remote set-url origin http://mirrors.ustc.edu.cn/homebrew.git
+
+less /usr/loca/.git/config查看结果
+
+第三个问题：使用镜像之后直接报错，brew update执行失败，kernel_require.rb:55:in `require': cannot load such file 
+
+```
+sudo chown -R $(whoami):admin /usr/local ，修改权限
+```
+
+第四个问题，仍然没有解决，清理git目录，
+
+First, open terminal and `cd /usr/local/`, and `git status` to see if Homebrew is clean.
+
+if dirty, `git reset --hard && git clean -df`
+
+then `brew doctor`, `brew update`
+
+问题：运行“rbenv local 2.2.3”后，检查ruby版本，“ruby --version”居然没变
+
+```
+env | grep PATH
+```
+
+ruby环境变量，居然还需要重新设置，
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+eval "$(rbenv init -)"
+
+问题：gem install bundler
+
+问题：rbenv: bundle: command not found
+
+The `bundle' command exists in these Ruby versions:
+  2.2.3
+
+重新安装2.2.3，之前尝试切换2.2.2，好吧，重新切回啦
+
+问题：淘宝镜像报错，http=>https
+
+1. `$ gem sources --remove https://rubygems.org/`
+2. `$ gem sources -a https://ruby.taobao.org/`
+3. `$ gem sources -l`
+
+问题：切换terminal无效
+
+手动修改~/.bash_profile，执行“source ~/.bash_profile"解决
+
+问题：Could not locate Gemfile or .bundle/ directory
+
+切换到oct目录/Jekll，包含Gemfile，原因？
+
