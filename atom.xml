@@ -1,92 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>daami&#8217;s blog</title>
-  <meta name="author" content="Your Name">
-
-  
-  <meta name="description" content="真的没有什么高大上的内容，为了将一些新的内容更新到博客里面来，碰到了各种各样的问题，断断续续的弄了好几天。对于一个没玩过ruby的人，第一次弄个ruby的环境也挺辛苦的，好在有stackoverflow和google，问题一点点的都解决掉了。 先列一些名词，如果这些概念都弄明白了， &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://daami.github.io/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="daami's blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/libs/jquery.min.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<--link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"-->
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">daami&#8217;s blog</a></h1>
-  
-    <h2>stay hungry, stay foolish.</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="sitesearch" value="daami.github.io">
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[daami's blog]]></title>
+  <link href="http://daami.github.io/atom.xml" rel="self"/>
+  <link href="http://daami.github.io/"/>
+  <updated>2016-07-05T20:04:28+08:00</updated>
+  <id>http://daami.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2016/07/01/title/">Octopress搭建各种问题记录</a></h1>
-    
-    
-      <p class="meta">
-        
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-
-
-
-<time class='entry-date' datetime='2016-07-01T15:10:25+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>3:10 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>真的没有什么高大上的内容，为了将一些新的内容更新到博客里面来，碰到了各种各样的问题，断断续续的弄了好几天。对于一个没玩过ruby的人，第一次弄个ruby的环境也挺辛苦的，好在有stackoverflow和google，问题一点点的都解决掉了。</p>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress搭建各种问题记录]]></title>
+    <link href="http://daami.github.io/blog/2016/07/01/title/"/>
+    <updated>2016-07-01T15:10:25+08:00</updated>
+    <id>http://daami.github.io/blog/2016/07/01/title</id>
+    <content type="html"><![CDATA[<p>真的没有什么高大上的内容，为了将一些新的内容更新到博客里面来，碰到了各种各样的问题，断断续续的弄了好几天。对于一个没玩过ruby的人，第一次弄个ruby的环境也挺辛苦的，好在有stackoverflow和google，问题一点点的都解决掉了。</p>
 
 <p>先列一些名词，如果这些概念都弄明白了，后面碰到的问题也都不是个事了</p>
 
@@ -227,68 +159,7 @@
 <p>搞了半天的brew和gem源，在&#8221;/usr/local&#8221;目录弄得正嗨，切回Octopress目录解决</p>
 
 <p>至此终于可以本地跑起来，不容易吧！</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/07/01/title/">Octopress搭建各种问题记录</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - Your Name -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>
