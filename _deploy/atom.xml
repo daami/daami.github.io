@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[daami's blog]]></title>
+  <link href="http://daami.github.io/atom.xml" rel="self"/>
+  <link href="http://daami.github.io/"/>
+  <updated>2016-07-05T18:22:02+08:00</updated>
+  <id>http://daami.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress搭建各种问题记录]]></title>
+    <link href="http://daami.github.io/blog/2016/07/01/title/"/>
+    <updated>2016-07-01T15:10:25+08:00</updated>
+    <id>http://daami.github.io/blog/2016/07/01/title</id>
+    <content type="html"><![CDATA[<p>真的没有什么高大上的内容，为了将一些新的内容更新到博客里面来，碰到了各种各样的问题，断断续续的弄了好几天。对于一个没玩过ruby的人，第一次弄个ruby的环境也挺辛苦的，好在有stackoverflow和google，问题一点点的都解决掉了。</p>
+
+<p>先列一些名词，如果这些概念都弄明白了，后面碰到的问题也都不是个事了</p>
+
+<p><strong><a href="http://brew.sh/">brew</a></strong></p>
+
+<p>Homebrew（brew）是使用Ruby进行开发的托管于 <a href="https://github.com/Homebrew/homebrew">GitHub</a> 上的开源的软件包管理系统，简单类比Ubuntu下的apt-get，RedHat下的yum。brew是从软件包仓库下载源代码码到本地进行解压，进而执行 <code>./configure</code> &amp;&amp; <code>make install</code> ，将软件编译安装到单独的目录（<code>/usr/local/Cellar</code>）下，然后软链（symlink）到 <code>/usr/local</code> 目录下，同时会自动检测下载相关依赖库，并自动配置好各种环境变量。</p>
+
+<p><strong><a href="https://jekyllrb.com/">Jekyll</a></strong></p>
+
+<p>Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> （或者 <a href="http://textile.sitemonks.com/">Textile</a>） 以及 <a href="http://docs.shopify.com/themes/liquid-basics">Liquid</a> 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 <a href="http://pages.github.com/">GitHub Page</a> 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的，Octopress也就是对他进行了些封装，用起来舒服点而已。</p>
+
+<p><strong><a href="https://github.com/rbenv/rbenv">rbenv</a>/<a href="https://rvm.io/">RVM</a></strong></p>
+
+<p>ruby多版本管理工具，简单说就是机器上安装了过个ruby，选择所需的ruby版本就靠他们了。RVM历史悠久，各种功能比较全，rbenv是37signals新弄出来的，新出的东西大家都懂得，别人的东西总是各种用着不爽，轻度用户无所谓了。使用 rbenv 后，gem 还是按照原有的方式进行安装、升级，只是 gem 的安装路径是在 rbenv 文件夹中当前 Ruby 版本文件夹下。而且，安装带有可执行文件的 gem 后，需要执行一个特别的命令，告诉 rbenv 更新相应的映射关系，这个命令在安装新版本的 Ruby 后也需要执行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rbenv rehash</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><a href="https://github.com/rbenv/ruby-build">ruby-build</a></strong></p>
+
+<p>rbenv的一个插件，使得rbenv支持编译安装不同版本Ruby源码，当然ruby-build也是支持在独立环境使用的。查看当前所有安装版本命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rbenv versions</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><a href="https://rubygems.org/">gem</a></strong></p>
+
+<p>RubyGems（gem）是Ruby程序包管理器，Ruby世界的brew吧。RubyGems 将所有的gem包安装到 /[ruby root]/lib/ruby/gems/[ver]/ 目录下，包括cache、doc、gems、specifications 4个目录，cache下放置下载的原生gem包，gems下则放置的是解压过的gem包。当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的gem包，然后重新运行 gem install [gemname] 命令即可。</p>
+
+<p>Gem通常是依照“.gemspec”文件构建的，其为包含了有关Gem信息的<a href="https://zh.wikipedia.org/wiki/YAML">YAML</a>文件。然而，Ruby代码也可以直接建立Gem，这种情况下通常利用<a href="https://zh.wikipedia.org/w/index.php?title=Rake&amp;action=edit&amp;redlink=1">Rake</a>来进行。</p>
+
+<p><strong><a href="https://ruby-china.org/topics/26655">Gemfile</a></strong></p>
+
+<p>Gemfile里面定义了项目的软件包依赖，可以类比Python里的requires.txt文件或者maven内的pom文件</p>
+
+<p><strong><a href="http://bundler.io/">bundler</a></strong></p>
+
+<p>bundler是ruby项目（rails）的包依赖管理工具。执行bundle install时，会读取gemfile内的包信息，如果相应的gem已经安装则提示using，否则下载并安装并提示installing</p>
+
+<p><strong><a href="http://rake.rubyforge.org/">rake</a></strong></p>
+
+<p>ruby程序的打包工具，类比make，官方文档是这么说的：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>a simple ruby build program with capabilities similar to make.</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>问题：执行rake时抛错，信息大致是：”Errno::ENOENT: No Such File or Directory - Jekyll ~ Octopress and El Capitan“</strong></p>
+
+<p>网上找了下，文章一大把，看来是共性问题。分析了下，大致的结论就是在新版本的EI Capitan上Octopress有问题，stackoverflow上有一篇非常<a href="http://schalkneethling.github.io/blog/2015/10/16/errno-enoent-no-such-file-or-directory-jekyll-octopress-el-capitan/">不错的文章</a>，workaround也有，那就是升级ruby到2.2.2之后版本，好吧，大致的命令就这几句：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>brew update
+</span><span class='line'>brew install rbenv ruby-build
+</span><span class='line'>rbenv install 2.2.3
+</span><span class='line'>rbenv local 2.2.3
+</span><span class='line'>gem install bundler
+</span><span class='line'>rbenv rehash
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>看看挺简单的，想都没想就开工了，接下来的问题都基于这几个命令来的</p>
+
+<p><strong>问题：brew update超慢</strong></p>
+
+<p>brew从github上拉包，速度那就不用想了，网上有国内的镜像可用，清华或者中科大都行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd /usr/local
+</span><span class='line'>git remote set-url origin http://mirrors.ustc.edu.cn/homebrew.git
+</span><span class='line'>less /usr/loca/.git/config</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>问题：使用镜像之后直接报错，brew update执行失败，kernel_require.rb:55:in `require&#8217;: cannot load such file</strong></p>
+
+<p>分析了下网上的说法，大致是升级EI Capitan导致的权限问题，修改brew的git目录权限：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo chown -R $(whoami):admin /usr/local</span></code></pre></td></tr></table></div></figure>
+
+
+<p>有人还建议清理git目录，猜测是之前break了brew update命令导致git目录状态不对，当时忘记验证下了，执行下面的几句，问题解决了</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd /usr/local
+</span><span class='line'>git reset --hard
+</span><span class='line'>git clean -df</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>问题：运行“rbenv local 2.2.3”后，检查ruby版本，“ruby &ndash;version”居然没变</strong></p>
+
+<p>rbenv需要设置环境变量，检查PATH内容：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>env | grep PATH</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果没有，设置下.bash_profile：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RBENV=/Users/XXX/.rbenv/shims:/Users/XXX/.rbenv/bin
+</span><span class='line'>PATH=$RBENV:$MAVEN_HOME/bin:$PATH
+</span><span class='line'>source ~/.bash_profile</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>问题：gem install bundler抛错，具体异常忘记了，大致是个页面404</strong></p>
+
+<p>gem源被墙了，之前已经切换过切换淘宝镜像，仔细核对后发现，淘宝镜像的源改成https了，好吧，只能再次改一下</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> gem sources --remove http://taobao.org/
+</span><span class='line'> gem sources -a https://ruby.taobao.org/
+</span><span class='line'> gem sources -l</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>问题：rbenv: bundle: command not found，The `bundle&#8217; command exists in these Ruby versions:  2.2.3</strong></p>
+
+<p>重新安装2.2.3，之前尝试切换2.2.2看看好不好用，忘记切回来了，也是醉了，好吧，重新切回啦</p>
+
+<p><strong>问题：执行”bundle install“抛错，Could not locate Gemfile or .bundle/ directory</strong></p>
+
+<p>搞了半天的brew和gem源，在&#8221;/usr/local&#8221;目录弄得正嗨，切回Octopress目录解决</p>
+
+<p>至此终于可以本地跑起来，不容易吧！</p>
+]]></content>
+  </entry>
+  
+</feed>
