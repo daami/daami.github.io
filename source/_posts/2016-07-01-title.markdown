@@ -15,7 +15,7 @@ Homebrew（brew）是使用Ruby进行开发的托管于 [GitHub](https://github
 
 **[Jekyll](https://jekyllrb.com/)**
 
-Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 [Markdown](http://daringfireball.net/projects/markdown/) （或者 [Textile](http://textile.sitemonks.com/)） 以及 [Liquid](http://docs.shopify.com/themes/liquid-basics) 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 [GitHub Page](http://pages.github.com/) 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的，Octopress也就是对他进行了些封装，用起来舒服点而已。
+Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 [Markdown](http://daringfireball.net/projects/markdown/) （或者 [Textile](http://redcloth.org/textile)） 以及 [Liquid](http://docs.shopify.com/themes/liquid-basics) 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 [GitHub Page](http://pages.github.com/) 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的，Octopress也就是对他进行了些封装，用起来舒服点而已。
 
 **[rbenv](https://github.com/rbenv/rbenv)/[RVM](https://rvm.io/)**
 
@@ -37,7 +37,7 @@ rbenv versions
 
 RubyGems（gem）是Ruby程序包管理器，Ruby世界的brew吧。RubyGems 将所有的gem包安装到 /[ruby root]/lib/ruby/gems/[ver]/ 目录下，包括cache、doc、gems、specifications 4个目录，cache下放置下载的原生gem包，gems下则放置的是解压过的gem包。当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的gem包，然后重新运行 gem install [gemname] 命令即可。
 
-Gem通常是依照“.gemspec”文件构建的，其为包含了有关Gem信息的[YAML](https://zh.wikipedia.org/wiki/YAML)文件。然而，Ruby代码也可以直接建立Gem，这种情况下通常利用[Rake](https://zh.wikipedia.org/w/index.php?title=Rake&action=edit&redlink=1)来进行。
+Gem通常是依照“.gemspec”文件构建的，其为包含了有关Gem信息的[YAML](https://zh.wikipedia.org/wiki/YAML)文件。然而，Ruby代码也可以直接建立Gem，这种情况下通常利用[Rake](http://rake.rubyforge.org/)来进行。
 
 **[Gemfile](https://ruby-china.org/topics/26655)**
 
