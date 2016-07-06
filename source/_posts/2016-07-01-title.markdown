@@ -109,7 +109,7 @@ env | grep PATH
 
 ```
 RBENV=/Users/XXX/.rbenv/shims:/Users/XXX/.rbenv/bin
-PATH=$RBENV:$MAVEN_HOME/bin:$PATH
+PATH=$RBENV:$PATH
 source ~/.bash_profile
 ```
 
@@ -118,7 +118,7 @@ source ~/.bash_profile
 gem源被墙了，之前已经切换过切换淘宝镜像，仔细核对后发现，淘宝镜像的源改成https了，好吧，只能再次改一下
 
 ```
- gem sources --remove http://taobao.org/
+ gem sources --remove http://ruby.taobao.org/
  gem sources -a https://ruby.taobao.org/
  gem sources -l
 ```
