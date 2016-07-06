@@ -223,6 +223,18 @@
 
 <p>搞了半天的brew和gem源，在&#8221;/usr/local&#8221;目录弄得正嗨，切回Octopress目录解决</p>
 
+<p><strong>问题：本地修改后，github page上页面没有更新</strong></p>
+
+<p>本地部署页面打开正常，就是远端的页面没有更新。查了比较久，才找到原因，远端部署的文件是选择<em>deploy目录下的内容，部署的方式是在</em>deploy目录下初始化一个git项目，然后push到远端。我这Octopress项目之前创建过，最近从github上重新clone到本地，_deploy目录并没有初始化，执行命令，问题解决：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>问题：打开页面很慢</strong></p>
+
+<p>定位发现页面有访问fonts.googleapis.com域下的资源文件，这个域名被墙了，本地grep下目录，将找到的所有引用到这个资源的地方注释掉，问题解决</p>
+
 <p>至此终于可以本地跑起来，不容易吧！</p>
 </div>
 
